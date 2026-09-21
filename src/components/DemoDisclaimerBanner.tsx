@@ -1,5 +1,5 @@
-import React from 'react';
-import { Sparkles, LayoutDashboard, HelpCircle } from 'lucide-react';
+import React, { useState } from 'react';
+import { Sparkles, LayoutDashboard, HelpCircle, X } from 'lucide-react';
 import { PageView } from '../types';
 
 interface DemoDisclaimerBannerProps {
@@ -15,6 +15,23 @@ export const DemoDisclaimerBanner: React.FC<DemoDisclaimerBannerProps> = ({
   onOpenWalkthrough,
   requestCount,
 }) => {
+  const [isDismissed, setIsDismissed] = useState(false);
+
+  if (isDismissed) {
+    return (
+      <div className="fixed bottom-4 right-4 z-50 animate-in fade-in">
+        <button
+          onClick={() => setIsDismissed(false)}
+          className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#12231A]/95 text-[#E8EFE9] text-xs font-medium shadow-lg border border-[#2B523D] hover:bg-[#1C3728] transition-all cursor-pointer backdrop-blur-xs"
+          title="Show Portfolio Demo Notice"
+        >
+          <Sparkles className="w-3.5 h-3.5 text-[#A3E6BA]" />
+          <span>Demo Info</span>
+        </button>
+      </div>
+    );
+  }
+
   return (
     <aside
       aria-label="Portfolio Demonstration Notice"
@@ -26,9 +43,11 @@ export const DemoDisclaimerBanner: React.FC<DemoDisclaimerBannerProps> = ({
             Portfolio Demo
           </span>
           <p className="text-[#BFD4C8] text-[11px] sm:text-xs truncate sm:overflow-visible">
-            <span className="font-semibold text-white">Built by Noah Redman:</span>{' '}
-            <span className="hidden sm:inline">Fictional small-business website & working lead CRM. Data stored in your browser.</span>
-            <span className="inline sm:hidden">Dual-product web & CRM demo.</span>
+            <span className="font-semibold text-white">Concept by Noah Redman:</span>{' '}
+            <span className="hidden sm:inline">
+              Realistic small-business website demonstration paired with a browser-local CRM lead management dashboard.
+            </span>
+            <span className="inline sm:hidden">Realistic small-business demo site.</span>
           </p>
         </div>
 
@@ -36,19 +55,20 @@ export const DemoDisclaimerBanner: React.FC<DemoDisclaimerBannerProps> = ({
           <button
             onClick={onOpenWalkthrough}
             className="hidden sm:inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-[#1D3B2C] hover:bg-[#274F3B] text-[#DCE7DF] transition-colors text-xs font-medium cursor-pointer"
-            title="Learn how to test the full live workflow"
+            title="How to test the full live workflow"
           >
             <HelpCircle className="w-3.5 h-3.5 text-[#A3E6BA]" />
-            <span>Tour</span>
+            <span>Interactive Tour</span>
           </button>
 
           {currentPage !== 'dashboard' ? (
             <button
               onClick={() => onNavigate('dashboard')}
               className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#A3E6BA] hover:bg-[#B7F0CC] text-[#0F261C] font-bold transition-all text-xs cursor-pointer shadow-xs"
+              title="View Owner / Admin Lead Management Portal"
             >
               <LayoutDashboard className="w-3.5 h-3.5 text-[#0F261C]" />
-              <span>CRM</span>
+              <span>Owner CRM</span>
               <span className="px-1.5 py-0.2 rounded-full bg-[#0F261C] text-[#A3E6BA] text-[10px] font-extrabold">
                 {requestCount}
               </span>
@@ -58,9 +78,18 @@ export const DemoDisclaimerBanner: React.FC<DemoDisclaimerBannerProps> = ({
               onClick={() => onNavigate('home')}
               className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-[#1D3B2C] hover:bg-[#274F3B] text-[#E2EBE5] font-medium transition-colors text-xs cursor-pointer"
             >
-              <span>← Website</span>
+              <span>← View Website</span>
             </button>
           )}
+
+          <button
+            onClick={() => setIsDismissed(true)}
+            className="p-1 rounded-md text-[#8EA697] hover:text-white hover:bg-[#1D3B2C] transition-colors cursor-pointer"
+            aria-label="Dismiss banner"
+            title="Minimize banner"
+          >
+            <X className="w-3.5 h-3.5" />
+          </button>
         </div>
       </div>
     </aside>

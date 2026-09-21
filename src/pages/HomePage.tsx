@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, CheckCircle2, MapPin, Sparkles, Droplets, ShieldCheck, Clock, Calendar, ArrowUpRight } from 'lucide-react';
+import { ArrowRight, CheckCircle2, MapPin, Droplets, ShieldCheck, Clock, Calendar, Sparkles } from 'lucide-react';
 import { ServiceHighlightStrip } from '../components/ServiceHighlightStrip';
 import { BeforeAfterShowcase } from '../components/BeforeAfterShowcase';
 import { ServiceCard } from '../components/ServiceCard';
@@ -19,51 +19,8 @@ export const HomePage: React.FC<HomePageProps> = ({
 }) => {
   return (
     <div className="space-y-16 sm:space-y-24 pb-16">
-      {/* DEVELOPER PORTFOLIO INTRODUCTION & CTA */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
-        <div className="bg-[#12231A] text-white rounded-3xl p-6 sm:p-8 border border-[#234533] shadow-lg">
-          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
-            <div className="space-y-2 max-w-2xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-[#214332] text-[#A3E6BA] border border-[#2F5A44]">
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>Portfolio Demonstration by Noah Redman</span>
-              </div>
-              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-white tracking-tight">
-                Looking for a Custom Website & Client Dashboard for Your Small Business?
-              </h2>
-              <p className="text-xs sm:text-sm text-[#BFD4C8] leading-relaxed">
-                Designed and built by freelance web developer <strong>Noah Redman</strong>. This project demonstrates how a consumer-facing marketing site pairs with a browser-local CRM lead management dashboard to eliminate admin friction for service businesses.
-              </p>
-            </div>
-
-            <div className="flex flex-wrap items-center gap-3 shrink-0">
-              <button
-                onClick={() => onNavigate('quote')}
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#A3E6BA] hover:bg-[#B7F0CC] text-[#0F261C] font-bold text-xs sm:text-sm shadow-md transition-all cursor-pointer"
-              >
-                <span>Try the Demo</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
-              <button
-                onClick={() => onNavigate('dashboard')}
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#1C3627] hover:bg-[#254834] text-white font-semibold text-xs sm:text-sm border border-[#2E5740] transition-colors cursor-pointer"
-              >
-                <span>Explore CRM Dashboard</span>
-              </button>
-              <a
-                href="mailto:contact@redmandigital.dev?subject=Inquiry%20from%20Lakeshore%20Demo"
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-medium text-xs sm:text-sm transition-colors"
-              >
-                <span>Inquire About a Custom Build</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* HERO SECTION */}
-      <section className="relative overflow-hidden bg-[#FAF7F2] pt-6 sm:pt-12 pb-12 sm:pb-20 border-b border-[#E8E1D7]">
+      <section className="relative overflow-hidden bg-[#FAF7F2] pt-8 sm:pt-16 pb-12 sm:pb-20 border-b border-[#E8E1D7]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             {/* Hero Left Column */}
@@ -382,33 +339,37 @@ export const HomePage: React.FC<HomePageProps> = ({
         <div className="bg-[#183527] text-white rounded-3xl p-8 sm:p-14 text-center space-y-6 shadow-xl relative overflow-hidden">
           <div className="relative z-10 max-w-2xl mx-auto space-y-4">
             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-[#284E3B] text-[#A3E6BA]">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Ready to See the Full Workflow in Action?</span>
+              <Droplets className="w-3.5 h-3.5" />
+              <span>West Michigan Exterior Care Specialists</span>
             </span>
 
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#F2F7F4]">
-              Experience the dual website & lead dashboard.
+              Protect your property with calibrated care.
             </h2>
 
             <p className="text-sm sm:text-base text-[#C2D6CA] leading-relaxed">
-              Submit a quick fictional quote request right now, then watch it instantly appear inside the business CRM dashboard in your browser.
+              From lakeshore cottage soft washing to residential stone restoration, request your tailored quote in under two minutes with transparent project pricing.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
               <button
                 onClick={() => onNavigate('quote')}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-[#E8EFE9] hover:bg-white text-[#163024] font-bold text-sm shadow-md transition-all cursor-pointer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-[#A3E6BA] hover:bg-[#B7F0CC] text-[#0F261C] font-bold text-sm shadow-md transition-all cursor-pointer"
               >
-                <span>Submit a Demo Quote</span>
+                <span>Request Your Free Quote</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
 
               <button
-                onClick={onOpenWalkthrough}
+                onClick={() => onNavigate('services')}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#234534] hover:bg-[#2C5641] text-white font-medium text-sm border border-[#346049] transition-colors cursor-pointer"
               >
-                <span>Read the 2-Minute Guide</span>
+                <span>Explore All Services</span>
               </button>
+            </div>
+
+            <div className="pt-4 text-xs text-[#8DA99A]">
+              <span>Demo Notice: Fictional business showcase by Noah Redman. Quote submissions update the live CRM portal.</span>
             </div>
           </div>
         </div>
