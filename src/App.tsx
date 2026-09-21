@@ -14,9 +14,50 @@ import { AboutPage } from './pages/AboutPage';
 import { QuotePage } from './pages/QuotePage';
 import { DashboardPage } from './pages/DashboardPage';
 
+function getPageFromLocation(): PageView {
+  if (typeof window === 'undefined') return 'home';
+
+  // 1. Check pathname first (Vercel SPA direct visits)
+  const pathname = window.location.pathname.toLowerCase().replace(/^\/+|\/+$/g, '');
+  if (pathname === 'services') return 'services';
+  if (pathname === 'our-work' || pathname === 'work') return 'work';
+  if (pathname === 'about') return 'about';
+  if (pathname === 'quote') return 'quote';
+  if (pathname === 'demo-dashboard' || pathname === 'dashboard') return 'dashboard';
+
+  // 2. Check hash fallback
+  const hash = window.location.hash.replace('#', '').toLowerCase();
+  if (hash === 'services') return 'services';
+  if (hash === 'our-work' || hash === 'work') return 'work';
+  if (hash === 'about') return 'about';
+  if (hash === 'quote') return 'quote';
+  if (hash === 'demo-dashboard' || hash === 'dashboard') return 'dashboard';
+
+  return 'home';
+}
+
+function getPathForPage(page: PageView): string {
+  switch (page) {
+    case 'home':
+      return '/';
+    case 'services':
+      return '/services';
+    case 'work':
+      return '/our-work';
+    case 'about':
+      return '/about';
+    case 'quote':
+      return '/quote';
+    case 'dashboard':
+      return '/demo-dashboard';
+    default:
+      return '/';
+  }
+}
+
 export default function App() {
-  // Page state
-  const [currentPage, setCurrentPage] = useState<PageView>('home');
+  // Page state initialized from URL
+  const [currentPage, setCurrentPage] = useState<PageView>(getPageFromLocation);
   const [preselectedService, setPreselectedService] = useState<ServiceType | null>(null);
   const [isWalkthroughOpen, setIsWalkthroughOpen] = useState(false);
 
@@ -32,30 +73,26 @@ export default function App() {
   useEffect(() => {
     refreshRequests();
 
-    // Check URL hash for direct routing e.g. #dashboard or #quote
-    const handleHashChange = () => {
-      const hash = window.location.hash.replace('#', '').toLowerCase();
-      if (['home', 'services', 'work', 'about', 'quote', 'dashboard'].includes(hash)) {
-        setCurrentPage(hash as PageView);
-      }
+    const handleLocationChange = () => {
+      const page = getPageFromLocation();
+      setCurrentPage(page);
     };
 
-    // Check initial pathname or hash
-    const path = window.location.pathname.toLowerCase();
-    if (path.includes('demo-dashboard') || path.includes('dashboard')) {
-      setCurrentPage('dashboard');
-    } else if (window.location.hash) {
-      handleHashChange();
-    }
-
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+    window.addEventListener('popstate', handleLocationChange);
+    window.addEventListener('hashchange', handleLocationChange);
+    return () => {
+      window.removeEventListener('popstate', handleLocationChange);
+      window.removeEventListener('hashchange', handleLocationChange);
+    };
   }, []);
 
-  // Synchronize hash when navigation occurs
+  // Synchronize history state and view when navigation occurs
   const handleNavigate = (page: PageView) => {
     setCurrentPage(page);
-    window.location.hash = page;
+    const targetPath = getPathForPage(page);
+    if (window.location.pathname !== targetPath) {
+      window.history.pushState({ page }, '', targetPath);
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -63,7 +100,10 @@ export default function App() {
   const handleSelectServiceForQuote = (serviceType: ServiceType) => {
     setPreselectedService(serviceType);
     setCurrentPage('quote');
-    window.location.hash = 'quote';
+    const targetPath = getPathForPage('quote');
+    if (window.location.pathname !== targetPath) {
+      window.history.pushState({ page: 'quote' }, '', targetPath);
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 

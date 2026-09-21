@@ -16,7 +16,7 @@ async function startServer() {
 
   // Server-side Gemini API for Job Brief generation
   app.post("/api/job-brief", async (req, res) => {
-    const { requestData } = req.body;
+    const requestData = req.body?.requestData || req.body?.request;
     if (!requestData) {
       return res.status(400).json({ error: "Missing requestData" });
     }
