@@ -31,6 +31,7 @@ import {
   updateRequestNotes,
   updateRequestFollowUp,
   resetToSampleData,
+  exportToCsv,
 } from '../utils/storage';
 import { generateDraftEmailReply, generateLocalDeterministicBrief } from '../utils/draftHelpers';
 
@@ -124,46 +125,9 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
     setShowResetConfirm(false);
   };
 
-  // CSV Export handler
+  // Safe Blob-based CSV Export handler
   const handleExportCSV = () => {
-    const headers = [
-      'Reference',
-      'Date Created',
-      'Customer Name',
-      'Email',
-      'Phone',
-      'ZIP',
-      'Service',
-      'Property Type',
-      'Project Size',
-      'Timeframe',
-      'Status',
-      'Internal Notes',
-    ];
-
-    const rows = requests.map((r) => [
-      `"${r.referenceNumber}"`,
-      `"${new Date(r.createdAt).toLocaleString()}"`,
-      `"${r.customerName.replace(/"/g, '""')}"`,
-      `"${r.email}"`,
-      `"${r.phone || ''}"`,
-      `"${r.zipCode}"`,
-      `"${r.serviceType}"`,
-      `"${r.propertyType}"`,
-      `"${r.projectSize}"`,
-      `"${r.timeframe}"`,
-      `"${r.status}"`,
-      `"${(r.internalNotes || '').replace(/"/g, '""')}"`,
-    ]);
-
-    const csvContent = 'data:text/csv;charset=utf-8,' + [headers.join(','), ...rows.map((e) => e.join(','))].join('\n');
-    const encodedUri = encodeURI(csvContent);
-    const link = document.createElement('a');
-    link.setAttribute('href', encodedUri);
-    link.setAttribute('download', `lakeshore_quote_inquiries_${new Date().toISOString().split('T')[0]}.csv`);
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    exportToCsv(requests);
   };
 
   // Copy helpers

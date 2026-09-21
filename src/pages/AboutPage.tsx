@@ -141,7 +141,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                 Final Property Walk
               </h3>
               <p className="text-xs sm:text-sm text-[#57655D] leading-relaxed">
-                Technicians inspect all elevations and test downspout drainage before leaving, guaranteeing complete customer satisfaction.
+                Technicians inspect all elevations and test downspout drainage before leaving, verifying high standards of cleanliness and care.
               </p>
             </div>
           </div>

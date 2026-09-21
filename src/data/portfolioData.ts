@@ -69,7 +69,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
       'Heavy seasonal cleanout on multi-pitch roof surrounded by mature white pines, including snake flushing of four buried downspout drains.',
     keyDetails: ['Padded ladder standoff protection', 'Hand-scoop debris extraction', 'High-flow drain flush verified'],
     imageUrl:
-      'https://images.unsplash.com/photo-1508873696983-2df5293cb32b?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1000&q=80',
     imageAlt: 'Suburban home roofline with clear gutters and trimmed tree canopy',
     tag: 'Full Perimeter Flush',
   },

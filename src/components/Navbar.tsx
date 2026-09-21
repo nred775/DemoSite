@@ -29,9 +29,9 @@ export const Navbar: React.FC<NavbarProps> = ({
   };
 
   return (
-    <header className="bg-[#FAF7F2]/95 backdrop-blur-md border-b border-[#E7E0D6] sticky top-[37px] z-40">
+    <header className="bg-[#FAF7F2]/95 backdrop-blur-md border-b border-[#E7E0D6] sticky top-0 z-40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Brand Logo */}
           <button
             onClick={() => handleNav('home')}

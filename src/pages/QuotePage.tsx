@@ -22,7 +22,7 @@ import {
   Sparkle,
 } from 'lucide-react';
 import { QuoteRequest, ServiceType, PropertyType, PageView } from '../types';
-import { addRequest } from '../utils/storage';
+import { addRequest, generateUniqueReferenceNumber } from '../utils/storage';
 
 interface QuotePageProps {
   preselectedService: ServiceType | null;
@@ -182,9 +182,8 @@ export const QuotePage: React.FC<QuotePageProps> = ({
       return;
     }
 
-    // Generate unique reference number e.g. LPC-8492
-    const randomNum = Math.floor(1000 + Math.random() * 9000);
-    const refCode = `LPC-${randomNum}`;
+    // Generate unique reference number (e.g. LPC-8492) guaranteed non-colliding
+    const refCode = generateUniqueReferenceNumber();
 
     const newRequest: QuoteRequest = {
       id: `req-${Date.now()}`,

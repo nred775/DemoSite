@@ -81,6 +81,24 @@ export function resetDemoData(): QuoteRequest[] {
 
 export const resetToSampleData = resetDemoData;
 
+export function generateUniqueReferenceNumber(): string {
+  const current = loadRequests();
+  const existingRefs = new Set(current.map((r) => r.referenceNumber.toUpperCase()));
+
+  // Try generating starting from high random range, guaranteed non-colliding
+  let candidate = '';
+  let attempts = 0;
+  while (attempts < 100) {
+    const num = Math.floor(1000 + Math.random() * 9000);
+    candidate = `LPC-${num}`;
+    if (!existingRefs.has(candidate)) {
+      return candidate;
+    }
+    attempts++;
+  }
+  return `LPC-${Date.now().toString().slice(-4)}`;
+}
+
 export function exportToCsv(requests: QuoteRequest[]): void {
   if (typeof window === 'undefined' || requests.length === 0) return;
 

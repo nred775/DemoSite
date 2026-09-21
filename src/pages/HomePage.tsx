@@ -19,8 +19,51 @@ export const HomePage: React.FC<HomePageProps> = ({
 }) => {
   return (
     <div className="space-y-16 sm:space-y-24 pb-16">
+      {/* DEVELOPER PORTFOLIO INTRODUCTION & CTA */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+        <div className="bg-[#12231A] text-white rounded-3xl p-6 sm:p-8 border border-[#234533] shadow-lg">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+            <div className="space-y-2 max-w-2xl">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-[#214332] text-[#A3E6BA] border border-[#2F5A44]">
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>Portfolio Demonstration by Noah Redman</span>
+              </div>
+              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                Looking for a Custom Website & Client Dashboard for Your Small Business?
+              </h2>
+              <p className="text-xs sm:text-sm text-[#BFD4C8] leading-relaxed">
+                Designed and built by freelance web developer <strong>Noah Redman</strong>. This project demonstrates how a consumer-facing marketing site pairs with a browser-local CRM lead management dashboard to eliminate admin friction for service businesses.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3 shrink-0">
+              <button
+                onClick={() => onNavigate('quote')}
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#A3E6BA] hover:bg-[#B7F0CC] text-[#0F261C] font-bold text-xs sm:text-sm shadow-md transition-all cursor-pointer"
+              >
+                <span>Try the Demo</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+              <button
+                onClick={() => onNavigate('dashboard')}
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#1C3627] hover:bg-[#254834] text-white font-semibold text-xs sm:text-sm border border-[#2E5740] transition-colors cursor-pointer"
+              >
+                <span>Explore CRM Dashboard</span>
+              </button>
+              <a
+                href="mailto:contact@redmandigital.dev?subject=Inquiry%20from%20Lakeshore%20Demo"
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-medium text-xs sm:text-sm transition-colors"
+              >
+                <span>Inquire About a Custom Build</span>
+                <ArrowUpRight className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* HERO SECTION */}
-      <section className="relative overflow-hidden bg-[#FAF7F2] pt-8 sm:pt-16 pb-12 sm:pb-20">
+      <section className="relative overflow-hidden bg-[#FAF7F2] pt-6 sm:pt-12 pb-12 sm:pb-20 border-b border-[#E8E1D7]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             {/* Hero Left Column */}
@@ -80,7 +123,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             <div className="lg:col-span-5 relative">
               <div className="relative rounded-3xl overflow-hidden shadow-xl border-4 border-white bg-[#E3DDD3]">
                 <img
-                  src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80"
+                  src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=1200&q=80"
                   alt="Spotless Michigan lakeside residential home exterior"
                   className="w-full h-[420px] sm:h-[480px] object-cover"
                 />
@@ -225,7 +268,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 </p>
               </div>
               <div className="mt-6 pt-4 border-t border-[#F2EDE5] text-xs text-[#537A67] font-semibold">
-                Spotless satisfaction guarantee
+                Comprehensive post-service inspection
               </div>
             </div>
           </div>

@@ -40,8 +40,8 @@ export const SERVICES_DATA: ServiceDetail[] = [
       'Low-pressure chemical soft washing for delicate siding; calibrated high-flow surface rotary cleaners for flat hardscapes.',
     recommendedFrequency: 'Annually in spring or early autumn',
     imageUrl:
-      'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1200&q=80',
-    imageAlt: 'Exterior stone patio and home facade freshly pressure washed and spotless',
+      'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Exterior surface cleaning technician operating pressure wash equipment on stone pavers',
     iconName: 'Droplets',
     highlights: [
       { title: 'Safe Siding Pressure', desc: 'Calibrated below 800 PSI for siding to protect paint, caulking, and underlying insulation.' },
@@ -71,8 +71,8 @@ export const SERVICES_DATA: ServiceDetail[] = [
       'Reverse-osmosis / deionized pure water filtration fed through carbon fiber water-fed poles and traditional brass squeegee detailing.',
     recommendedFrequency: 'Twice yearly (Spring lake bloom & Autumn prep)',
     imageUrl:
-      'https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=1200&q=80',
-    imageAlt: 'Sunlit gleaming clean glass windows in modern lakeshore home',
+      'https://images.unsplash.com/photo-1585421514738-01798e348b17?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Professional window technician detailing exterior glass with squeegee and purified water',
     iconName: 'Sparkles',
     highlights: [
       { title: 'Spot-Free Pure Water', desc: '0 PPM purified water leaves no detergent film, keeping glass cleaner for twice as long.' },
@@ -102,11 +102,11 @@ export const SERVICES_DATA: ServiceDetail[] = [
       'Padded ladder standoff stabilizers (never resting on your gutters), manual debris collection bins, and snake flush nozzles.',
     recommendedFrequency: 'Twice annually (late spring seed drop & late autumn post-leaf drop)',
     imageUrl:
-      'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80',
-    imageAlt: 'Roofline and gutters of residential home against blue sky',
+      'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Residential architectural roofline, eaves, and aluminum gutter drainage system',
     iconName: 'ShieldAlert',
     highlights: [
-      { title: 'Zero Mess Guarantee', desc: 'Debris is scooped directly into collection bins—never blown or splattered onto your lawn.' },
+      { title: 'Careful Debris Bagging', desc: 'Debris is scooped directly into collection bins—never blown or splattered onto your lawn.' },
       { title: 'Downspout Flush Verification', desc: 'We run water through every elbow and vertical pipe to guarantee free discharge.' },
       { title: 'Gutter Standoffs Used', desc: 'Ladder brackets prevent bending, scratching, or denting of your aluminum gutter system.' },
     ],
@@ -133,8 +133,8 @@ export const SERVICES_DATA: ServiceDetail[] = [
       'Alkaline cleaning wash followed by an organic acid brightener, rinsed under controlled low pressure (<600 PSI) with wide fan tips.',
     recommendedFrequency: 'Annually before summer season or prior to re-staining',
     imageUrl:
-      'https://images.unsplash.com/photo-1591825729269-caeb344f6df2?auto=format&fit=crop&w=1200&q=80',
-    imageAlt: 'Polished outdoor patio and backyard deck surrounded by trees',
+      'https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Clean outdoor wooden deck and backyard entertainment space with patio seating',
     iconName: 'SunMedium',
     highlights: [
       { title: 'Wood-Safe Conditioning', desc: 'Zero fuzzy wood fibers or wand scars; our oxygenated cleaners lift graying gently.' },
